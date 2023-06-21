@@ -1,0 +1,23 @@
+<!-- Main container for the system control section -->
+<section>
+  <div class="form-container">
+    <h2>System Control</h2>
+    <!-- Button to initialize the system. On click, it calls the initSystem function -->
+    <button (click)="initSystem()" class="init-button">Initialize System</button>
+    <!-- Button to shutdown the system. On click, it calls the shutdownSystem function -->
+    <button (click)="shutdownSystem()" class="shutdown-button">Shutdown System</button>
+    <!-- Button to restart the system. On click, it calls the restartSystem function -->
+    <button (click)="restartSystem()" class="restart-button">Restart System</button>
+  </div>
+
+  <div class="scrollable-container">
+    <!-- Container to show the status. It is only visible if showStatusContainer is true -->
+    <div class="status-container" *ngIf="showStatusContainer">
+      <!-- The status is displayed here -->
+      <h4>{{ status }}</h4>
+      <br>
+      <!-- If there is any error, it is displayed here -->
+      <h5>{{ error }}</h5>
+    </div>
+  </div>
+</section>

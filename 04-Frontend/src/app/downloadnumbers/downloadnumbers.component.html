@@ -1,0 +1,30 @@
+<!-- Main container for the Download Random Numbers section -->
+<section>
+  <!-- Form for user input on the number of bits and file type -->
+  <div class="form-container">
+    <h2>Download Random Numbers</h2>
+    <!-- Field for the user to specify the number of bits -->
+    <label for="numBits"># bits:</label>
+    <input type="number" name="numBits" id="numBits" min="1" placeholder="5000" #numBits>
+    <!-- Dropdown for the user to select the file type -->
+    <label for="filetype">filetype:</label>
+    <select name="filetype" id="filetype"#filetype>
+      <option value="bin" selected>.bin</option>
+      <option value="txt">.txt</option>
+    </select>
+    <!-- Button to submit the form and call the generateDownloadableFile function -->
+    <button type="submit" (click)="generateDownloadableFile(numBits.value, filetype.value)">Generate</button>
+  </div>
+
+  <!-- Container to show the status, only visible if showStatusContainer is true -->
+  <div class="status-container" *ngIf="showStatusContainer" >
+    <!-- Status is displayed here -->
+    <h4>{{ status }}</h4>
+    <!-- Form to download the generated file, only visible if showDownloadButton is true -->
+    <form action="https://172.16.78.59:8443/trng/randomNum/downloadFile" method="get" *ngIf="showDownloadButton">
+      <button type="submit">Download</button>
+    </form>
+    <!-- Any error is displayed here -->
+    <h5 *ngIf="!showDownloadButton"><br>{{error}}</h5>
+  </div>
+</section>

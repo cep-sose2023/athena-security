@@ -1,0 +1,17 @@
+<!-- Header for navigation links -->
+<header>
+  <ul class="nav-links">
+    <!-- The class 'active' is added to a link if it corresponds to the current route -->
+    <li><a [class.active]="currentRoute === '/system'" routerLink="/system">System</a></li>
+    <li><a [class.active]="currentRoute === '/generate'" routerLink="/generate">Generate</a></li>
+    <li><a [class.active]="currentRoute === '/download'" routerLink="/download">Download</a></li>
+  </ul>
+</header>
+
+<!-- Main content area where routed components will be rendered -->
+<main>
+  <div class="container">
+    <!-- Angular directive that outputs dynamic components associated with the router state -->
+    <router-outlet></router-outlet>
+  </div>
+</main>

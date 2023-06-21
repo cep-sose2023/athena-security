@@ -1,0 +1,35 @@
+<!-- Main container for the Generate Random Numbers section -->
+<section>
+
+  <!-- Form for user input on the number of bits and quantity -->
+  <div class="form-container">
+    <h2>Generate Random Numbers</h2>
+    <!-- Field for the user to specify the number of bits -->
+    <label for="numBits"># bits:</label>
+    <input type="number" name="numBits" id="numBits" min="1" placeholder="128" value="128" #numBits>
+    <!-- Field for the user to specify the quantity of numbers -->
+    <label for="quantity"># numbers</label>
+    <input type="number" name="quantity" id="quantity" min="1" placeholder="10" value="10" #quantity>
+    <!-- Button to submit the form and call the generateRandomNumbers function -->
+    <button type="submit" (click)="generateRandomNumbers(numBits.value, quantity.value)">Generate</button>
+  </div>
+
+  <!-- Container to show the status, only visible if showStatusContainer is true -->
+  <div class="status-container" *ngIf="showStatusContainer" >
+    <!-- Status is displayed here -->
+    <h4>{{ status }}</h4>
+    <br>
+    <!-- Any error is displayed here -->
+    <h5>{{error}}</h5>
+  </div>
+
+  <!-- Container to display generated numbers -->
+  <div class="scrollable-container">
+    <!-- A container for each number in generatedNumbers -->
+    <div class="number-container" *ngFor="let number of generatedNumbers">
+      <!-- The generated number is displayed here -->
+      <p>{{ number }}</p>
+    </div>
+  </div>
+
+</section>
